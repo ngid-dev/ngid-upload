@@ -1,0 +1,13 @@
+<div class="container p-4">
+  <h1>Angular Upload Tutorial</h1>
+  <h4>Create reusable upload component on Angular application</h4>
+  <br />
+  <br />
+  <form [formGroup]="formGroup">
+    <ngid-upload
+      formControlName="file"
+      [model]="uploadModel"
+      stringUrl="http://localhost:3000/upload"
+    ></ngid-upload>
+  </form>
+</div>
