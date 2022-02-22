@@ -16,20 +16,25 @@
       25%
     </div>
   </div> -->
-  <!-- 
+
   <ul class="file-list">
     <li
       class="file-item"
-      *ngFor="let item of [1, 2, 3, 4]"
-      (click)="inputFile.click()"
+      *ngFor="let file of state.files"
+      [ngClass]="file.error ? 'text-danger' : ''"
     >
-      <span class="file-item-name">Example.png</span>
+      <span class="file-item-name">{{ file.origin.name }}</span>
       <div class="file-item-action">
-        Upload Progress
-        <i class="fas fa-spinner fa-spin"></i>
-        Delete Upload
+        <!-- Upload Progress -->
+        <!-- <i class="fas fa-spinner fa-spin"></i> -->
+        <!-- Delete Upload -->
+        <em
+          class="fas fa-exclamation-circle text-danger me-3"
+          [title]="file.error.message"
+          *ngIf="file.status === 'INVALID'"
+        ></em>
         <em class="fas fa-times text-danger"></em>
       </div>
     </li>
-  </ul> -->
+  </ul>
 </div>

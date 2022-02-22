@@ -17,7 +17,7 @@ export class AppComponent implements OnInit {
     this.formGroup = new FormGroup({});
     this.formBuilder = new FormBuilder();
     this.uploadModel = new NgidUploadModel({
-      allowedExtension: 'jpg,png',
+      allowedExtension: 'jpg,png,jpeg',
       maxSize: 2000000,
     });
   }
