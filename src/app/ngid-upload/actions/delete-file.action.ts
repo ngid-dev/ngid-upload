@@ -3,6 +3,7 @@ export const deleteFileAction = (
   state: NgidUpload,
   payload: { index: number }
 ): void => {
-  console.log(state);
-  console.log(payload);
+  // call backend to delete a file with fileName
+  // when you get some success respond
+  state.files.splice(payload.index, 1);
 };

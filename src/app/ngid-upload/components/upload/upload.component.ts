@@ -87,4 +87,8 @@ export class UploadComponent implements ControlValueAccessor, OnInit {
 
     console.log(this.state.files);
   }
+
+  public handleDelete(index: number): void {
+    this.ngidUpload.dispatch(new ngidUploadAction.DeleteFile({ index }));
+  }
 }

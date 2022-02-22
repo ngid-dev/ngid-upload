@@ -20,7 +20,7 @@
   <ul class="file-list">
     <li
       class="file-item"
-      *ngFor="let file of state.files"
+      *ngFor="let file of state.files; let i = index"
       [ngClass]="file.error ? 'text-danger' : ''"
     >
       <span class="file-item-name">{{ file.origin.name }}</span>
@@ -33,7 +33,7 @@
           [title]="file.error.message"
           *ngIf="file.status === 'INVALID'"
         ></em>
-        <em class="fas fa-times text-danger"></em>
+        <em class="fas fa-times text-danger" (click)="handleDelete(i)"></em>
       </div>
     </li>
   </ul>
