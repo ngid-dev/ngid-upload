@@ -81,10 +81,15 @@ export class UploadComponent implements ControlValueAccessor, OnInit {
     this.$onBaseTouch = fn;
   }
 
-  public handleUploadChange(event: Event): void {
-    const files = (event.target as HTMLInputElement).files as FileList;
-    this.ngidUpload.dispatch(new ngidUploadAction.AddFile({ files }));
-
+  public handleUploadChange(event: Event, index?: number): void {
+    const inputElement = event.target as HTMLInputElement;
+    const files = inputElement.files as FileList;
+    this.ngidUpload.dispatch(
+      typeof index !== 'undefined'
+        ? new ngidUploadAction.ChangeFile({ index, file: files[0] })
+        : new ngidUploadAction.AddFile({ files })
+    );
+    inputElement.value = '';
     console.log(this.state.files);
   }
 
