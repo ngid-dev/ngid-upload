@@ -4,14 +4,12 @@ import {
   ControlValueAccessor,
   FormControl,
   FormGroup,
-  NgControl,
   NG_VALUE_ACCESSOR,
 } from '@angular/forms';
+import * as ngidUploadAction from '../../actions/ngid-upload.action';
 import { NgidUpload } from '../../domain/ngid-upload';
 import { NgidUploadModel } from '../../model/ngid-upload.model';
 import { NgidUploadService } from '../../ngid-upload.service';
-import * as ngidUploadAction from '../../actions/ngid-upload.action';
-import { uploadFileAction } from '../../actions/upload-file.action';
 @Component({
   selector: 'ngid-upload',
   templateUrl: './upload.component.html',
@@ -90,7 +88,7 @@ export class UploadComponent implements ControlValueAccessor, OnInit {
         : new ngidUploadAction.AddFile({ files })
     );
     inputElement.value = '';
-    console.log(this.state.files);
+    this.ngidUpload.dispatch(new ngidUploadAction.UploadFile());
   }
 
   public handleDelete(index: number): void {

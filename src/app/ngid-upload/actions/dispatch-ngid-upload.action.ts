@@ -5,6 +5,7 @@ import { changeFileAction } from './change-file.action';
 import { deleteFileAction } from './delete-file.action';
 import * as ngidUploadAction from './ngid-upload.action';
 import { reUploadFileAction } from './re-upload-file.action';
+import { uploadFileAction } from './upload-file.action';
 export const dispatchNgidUpload = (
   state: NgidUpload,
   action: ngidUploadAction.AllNgidUploadAction
@@ -24,6 +25,9 @@ export const dispatchNgidUpload = (
       break;
     case ngidUploadAction.CANCEL_UPLOAD_FILE:
       cancelUploadFileAction(state, action.payload);
+      break;
+    case ngidUploadAction.UPLOAD_FILE:
+      uploadFileAction(state);
       break;
     default:
       break;
